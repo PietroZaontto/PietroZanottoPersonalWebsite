@@ -206,6 +206,14 @@ footer p {
         height: 2px;
     }
 
+    .box-fisso {
+        height: 26px;       
+        border: 2px solid #000; 
+        border-radius: 18px; 
+        padding: 3px 10px;          
+    }
+    */
+    
     .container-text p:nth-child(3) {
         text-align: right; 
         margin-left: auto; 
@@ -214,11 +222,4 @@ footer p {
     }
     .container-text p:nth-child(4) {display: none;}
 
-    .box-fisso {
-        height: 26px;       
-        border: 2px solid #000; 
-        border-radius: 18px; 
-        padding: 3px 10px;          
-    }
-    */
 }
