@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/photos.css">
+    <title>PietroZanottoTM</title>
+</head>
+<body>
+    
+    <!-- NAVBAR -->
+    <header>
+        <nav>
+            <ul>
+                <li class="box-fisso"><a href="../design.html">DESIGN</a></li>
+                <li class="box-fisso"><a href="../../index.html">PHOTOS</a></li>
+                <li class="box-fisso"><a href="../about.html">ABOUT</a></li>
+                <li class="box-fisso"><a href="mailto:pietrozanotto@hotmail.com">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+        <div class="gallery">
+            <img src="../../images/Dammy&Duro/Dammy&Duro-1.jpg" class="gallery-img" style="display: block;">
+            <img src="../../images/Dammy&Duro/Dammy&Duro-2.jpg" class="gallery-img" style="display: none;">
+            <img src="../../images/Dammy&Duro/Dammy&Duro-3.jpg" class="gallery-img" style="display: none;">
+            <img src="../../images/Dammy&Duro/Dammy&Duro-4.jpg" class="gallery-img" style="display: none;">
+            <img src="../../images/Dammy&Duro/Dammy&Duro-5.jpg" class="gallery-img" style="display: none;">
+            <img src="../../images/Dammy&Duro/Dammy&Duro-6.jpg" class="gallery-img" style="display: none;">
+            <img src="../../images/Dammy&Duro/Dammy&Duro-7.jpg" class="gallery-img" style="display: none;">
+            <div class="gallery-img gallery-description" style="display: none;">
+                <p>
+                    DAMMY & DURO - VAXJO (SWEDEN), JUNE 2025<br><br>
+                    Engagement shoot staged as a candid encounter.<br>
+                    A playful and emotional collaboration planned with Dammy.
+                </p>
+            </div>
+            <!-- Aggiungi altre immagini se vuoi -->
+            <div class="gallery-nav gallery-left"></div>
+            <div class="gallery-nav gallery-right"></div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>PIETRO ZANOTTO PORTFOLIO<sup>TM</sup><br>
+        BASED IN MILAN, IT<br>
+        ©2025</p>
+    </footer>
+
+    <script>
+        const images = document.querySelectorAll('.gallery-img');
+        let current = 0;
+
+        let inactivityTimer = null;
+        let slideshowTimer = null;
+        const inactivityDelay = 10000; // 10 secondi
+        const slideshowDelay = 3000;   // 3 secondi
+
+        function showImage(idx) {
+            images.forEach((img, i) => {
+                img.style.display = (i === idx) ? 'block' : 'none';
+            });
+        }
+
+        function nextImage() {
+            current = (current + 1) % images.length;
+            showImage(current);
+        }
+
+        function prevImage() {
+            current = (current - 1 + images.length) % images.length;
+            showImage(current);
+        }
+
+        function startInactivityTimer() {
+            clearTimeout(inactivityTimer);
+            clearInterval(slideshowTimer);
+            inactivityTimer = setTimeout(startSlideshow, inactivityDelay);
+        }
+
+        function startSlideshow() {
+            slideshowTimer = setInterval(() => {
+                nextImage();
+            }, slideshowDelay);
+        }
+
+        function stopSlideshow() {
+            clearInterval(slideshowTimer);
+            slideshowTimer = null;
+        }
+
+        // Eventi click
+        document.querySelector('.gallery-left').addEventListener('click', () => {
+            prevImage();
+            startInactivityTimer();
+        });
+
+        document.querySelector('.gallery-right').addEventListener('click', () => {
+            nextImage();
+            startInactivityTimer();
+        });
+
+        // Eventi tastiera
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevImage();
+                startInactivityTimer();
+            }
+            if (e.key === 'ArrowRight') {
+                nextImage();
+                startInactivityTimer();
+            }
+        });
+
+        // Avvia il timer di inattività all'avvio
+        startInactivityTimer();
+    </script>
+    
+</body>
+</html>

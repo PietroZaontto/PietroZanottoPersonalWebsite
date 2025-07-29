@@ -1,0 +1,41 @@
+/* ARROWS */
+
+.gallery-left {
+    position: fixed;
+    height: 100%;
+    width: 50%;
+    left: 0;
+    cursor: w-resize; /* freccia orizzontale verso sinistra */
+}
+
+.gallery-right {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    right: 0;
+    cursor: e-resize; /* freccia orizzontale verso destra */
+}
+
+.gallery img {
+    height: auto;
+    width: auto;
+    max-height: 75vh;
+    max-width: 90vw;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+}
+
+.gallery-description {
+    width: 50vw;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.gallery-description p {
+    text-align: center;
+    line-height: 0.9;
+}

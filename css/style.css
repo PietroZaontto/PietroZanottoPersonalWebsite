@@ -1,0 +1,224 @@
+html {
+    margin: 10px;
+}
+
+body {
+    font-family: 'Helvetica Now Display', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    width: 100vw;
+    height: 100%;
+}
+
+img {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* HEADER */
+
+header {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 100%;
+    z-index: 100; /* per stare sopra agli altri elementi */
+}
+
+body nav{
+    width: 100%;
+    height: auto;
+}
+
+body nav ul{
+    width: 100%;
+    height: auto;
+    margin-block-start: 0;
+    padding-inline-start: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex; /* Per metterli in riga */
+}
+
+nav ul li {
+    display: inline;       /* Non strettamente necessario con flex, ma va bene */
+}
+
+.box-fisso {
+    /* box */
+    width: fit-content;         /* larghezza fissa */
+    height: 30px;        /* altezza fissa */
+    border: 2px solid #000; /* bordo nero spesso 2px */
+    border-radius: 20px;  /* angoli arrotondati */
+    background: #fff;     /* opzionale: sfondo bianco */
+    display: inline-block; /* <--- aggiungi questa riga */
+
+    /* testo */           /* Flexbox per allineamento interno */
+    align-items: flex-end;      /* Allinea in basso */
+    justify-content: flex-end;  /* Allinea a destra */
+    padding: 3px 10px;          /* Un po' di spazio interno, opzionale */
+    box-sizing: border-box;     /* Per includere il padding nelle dimensioni */
+}
+
+.selected {
+    background-color: #000;
+}
+.selected a {
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* MAIN */
+
+main {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    line-height: 0.9;
+}
+
+.container {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    left: 0px;
+}
+
+hr {
+    height: 2px;
+    background-color: #000;
+    width: 100%;
+    border: none;
+    display: flex;
+    mix-blend-mode: difference;
+}
+
+.container-text {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    z-index: 1000;
+}
+
+.container-text p {
+    position: fixed;
+    margin: 0px;
+    z-index: 100;
+    mix-blend-mode: difference;
+}
+
+.container-text p:nth-child(1) {margin-left: 10px; }
+.container-text p:nth-child(2) {margin-left: calc(25vw); }
+.container-text p:nth-child(3) {margin-left: calc(50vw); }
+.container-text p:nth-child(4) {
+    text-align: right; 
+    margin-left: auto; 
+    margin-right: 10px; 
+    position: relative;
+}
+
+
+/* IMAGES */
+
+.container-images {
+    width: 100%;
+    height: 100%;
+}
+
+.container-images img {
+    height: auto;
+    width: auto;
+    max-height: 75vh;
+    max-width: 90vw;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+}
+
+.cover {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none; /* evita click quando invisibile */
+  }
+  
+  .cover.visible {
+    opacity: 1;
+    pointer-events: none;
+  }
+
+/* WIP */
+
+.wip {
+    width: 50vw;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.wip p {
+    text-align: center;
+    line-height: 0.9;
+}
+
+/* FOOTER */
+
+footer {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: 10px;
+    line-height: 0.9;
+    right: 0;
+    left: 0;
+}
+
+footer p {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: auto;
+}
+
+@media (max-width: 800px) {
+    
+    /*
+    body {
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    hr {
+        height: 2px;
+    }
+
+    .container-text p:nth-child(3) {
+        text-align: right; 
+        margin-left: auto; 
+        margin-right: 10px; 
+        position: relative;
+    }
+    .container-text p:nth-child(4) {display: none;}
+
+    .box-fisso {
+        height: 26px;       
+        border: 2px solid #000; 
+        border-radius: 18px; 
+        padding: 3px 10px;          
+    }
+    */
+}
